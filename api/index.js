@@ -17,6 +17,10 @@ const pool = new Pool({
 });
 
 app.get('/', async (req, res) => {
+  res.send('Hola mundo')
+});
+
+app.get('/db', async (req, res) => {
   try {
     const result = await pool.query('SELECT NOW()');
     res.send(`Base de datos conectada: ${result.rows[0].now}`);
