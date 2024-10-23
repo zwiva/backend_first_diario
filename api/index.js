@@ -4,10 +4,7 @@ const app = express();
 
 app.use(express.json());
 
-
-// const port = process.env.PORT || 3000;
-
-app.use(express.json());
+const port = process.env.PORT || 3000;
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
@@ -30,8 +27,8 @@ app.get('/db', async (req, res) => {
   }
 });
 
-// app.listen(port, () => {
-//  console.log(`Servidor ejecutándose en el puerto ${port}`);
-// });
+app.listen(port, () => {
+ console.log(`Servidor ejecutándose en el puerto ${port}`);
+});
 
 module.exports = app;
